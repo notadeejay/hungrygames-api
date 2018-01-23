@@ -1,7 +1,7 @@
 module Api::V1
   class RestaurantsController < ApplicationController
     def index
-      @restaurants = Restaurant.all
+      @restaurants = Restaurant.find(Restaurant.pluck(:id).shuffle.first)
       render json: @restaurants
     end
 
